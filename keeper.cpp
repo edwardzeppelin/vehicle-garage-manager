@@ -6,7 +6,7 @@ class Keeper
 
 };
 
-class Garage
+/*class Garage
 {
 private:
 	string brand;
@@ -66,4 +66,5 @@ public:
 		this->allseats = allseats;
 		this->destination = destination;
 	}
-};
+};*/
+
