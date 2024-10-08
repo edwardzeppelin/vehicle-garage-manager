@@ -18,7 +18,17 @@ public:
 	void setmodel(const string& newmodel) { model = newmodel; };
 	void setenginev(const float& newenginev) { enginev = newenginev; };
 	void sethorsepwr(const int& newhorsepwr) { horsepwr = newhorsepwr; };
-	void setgearbox(const string& newgearbox) { terrain = newgearbox; };
+	void setterrain(const string& newterrain) { terrain = newterrain; };
+
+	void setcolour(const string& newcolour) override {}
+	void setgearbox(const string& newgearbox) override {}
+	void setsitseats(const int& newsitseats) override {}
+	void setallseats(const int& newallseats) override {}
+	void setdestination(const string& newdestination) override {}
+
+	string gettype() const override {
+		return "Moto";
+	}
 
 	void print() const override;
 

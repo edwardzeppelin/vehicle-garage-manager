@@ -2,6 +2,9 @@
 #define KEEPER_H
 
 #include "garage.h"
+#include "car.h"
+#include "moto.h"
+#include "bus.h"
 #include <iostream>
 using namespace std;
 
@@ -28,6 +31,7 @@ public:
 			throw out_of_range("Index out of range");
 		return vehicles[index];
 	}
+
 
 };
 

@@ -17,8 +17,18 @@ public:
 	void setbrand(const string& newbrand) { brand = newbrand; };
 	void setmodel(const string& newmodel) { model = newmodel; };
 	void setsitseats(const int& newsitseats) { sitseats = newsitseats; };
-	void setallseats(const int& newallseats) { allseats = newallseats; };
+	void setallseats(const int& newallseats) override { allseats = newallseats; };
 	void setdestination(const string& newdestination) { destination = newdestination; };
+
+	void sethorsepwr(const int& newhorsepwr) override {}
+	void setterrain(const string& newterrain) override {}
+	void setenginev(const float& newenginev) override {}
+	void setcolour(const string& newcolour) override {}
+	void setgearbox(const string& newgearbox) override {}
+
+	string gettype() const override {
+		return "Bus";
+	}
 
 	/*
 	string getbrand() const { return brand; };
