@@ -26,6 +26,10 @@ public:
 	void setallseats(const int& newallseats) override {}
 	void setdestination(const string& newdestination) override {}
 
+	void getveh() {
+		cout << brand << " " << model << " " << enginev << " " << horsepwr << " " << terrain << endl;
+	}
+
 	string gettype() const override {
 		return "Moto";
 	}

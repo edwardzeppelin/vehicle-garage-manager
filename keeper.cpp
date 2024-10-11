@@ -25,6 +25,25 @@ void Keeper::add(Garage* vehicle) {
 	vehicles[size++] = vehicle;
 }
 
+void Keeper::deletevehicle(int index) {
+	if (index < 0 || index >= size) {
+		throw out_of_range("Index out of range");
+	}
+
+	delete vehicles[index];
+
+	for (int i = index; i < size - 1; ++i) {
+		vehicles[i] = vehicles[i + 1];
+	}
+
+	--size;
+
+	if (size == 0) {
+		delete[] vehicles;
+		vehicles = nullptr;
+	}
+}
+
 void Keeper::printall() const {
 	for (int i = 0; i < size; ++i) {
 		cout << i + 1 << ": ";

@@ -19,6 +19,7 @@ public:
 	virtual void setsitseats(const int& newsitseats) = 0;
 	virtual void setallseats(const int& newallseats) = 0;
 	virtual void setdestination(const string& newdestination) = 0;
+	virtual void getveh() = 0;
 
 	virtual string gettype() const = 0;
 

@@ -24,6 +24,8 @@ public:
 
 	void add(Garage* vehicle);
 
+	void deletevehicle(int index);
+
 	void printall() const;
 
 	Garage* operator[](int index) const {

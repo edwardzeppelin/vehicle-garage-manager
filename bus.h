@@ -26,9 +26,9 @@ public:
 	void setcolour(const string& newcolour) override {}
 	void setgearbox(const string& newgearbox) override {}
 
-	string gettype() const override {
-		return "Bus";
-	}
+	void getveh() { cout << brand << " " << model << " " << sitseats << " " << allseats << " " << destination << endl;}
+
+	string gettype() const override { return "Bus"; }
 
 	/*
 	string getbrand() const { return brand; };
