@@ -2,6 +2,7 @@
 #define CAR_H
 
 #include "garage.h"
+#include <fstream>
 
 class Car : public Garage
 {
@@ -14,6 +15,7 @@ private:
 
 public:
 	Car(string brand, string model, float enginev, string colour, string gearbox);
+	Car() {};
 
 	void setbrand(const string& newbrand) { brand = newbrand; };
 	void setmodel(const string& newmodel) { model = newmodel; };
@@ -35,6 +37,27 @@ public:
 
 	string gettype() const override{
 		return "Car";
+	}
+
+
+	/*
+	friend std::ostream& operator<<(std::ostream& os, const Car& car) {
+		os << "Car " << car.brand << " " << car.model << " " << car.enginev << " " << car.colour << " " << car.gearbox << "\n";
+		return os;
+	}
+
+	friend std::istream& operator>>(std::istream& is, Car& car) {
+		is >> car.brand >> car.model >> car.enginev >> car.colour >> car.gearbox;
+		return is;
+	}*/
+
+	void serialize(std::ofstream& out) const override {
+		out << "Car: " << brand << " " << model << " " << enginev << " " << colour << " " << gearbox << "\n";
+	}
+
+	void deserialize(std::ifstream& in) override {
+		std::string type;
+		in >> type >> brand >> model >> enginev >> colour >> gearbox;
 	}
 
 };

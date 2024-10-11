@@ -25,6 +25,10 @@ public:
 
 	virtual ~Garage() {}
 
+	virtual void serialize(std::ofstream& out) const = 0;
+
+	virtual void deserialize(std::ifstream& in) = 0;
+
 };
 
 #endif

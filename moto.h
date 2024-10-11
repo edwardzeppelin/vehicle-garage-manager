@@ -2,6 +2,7 @@
 #define MOTO_H
 
 #include "garage.h"
+#include <fstream>
 
 class Motorcycle : public Garage
 {
@@ -13,6 +14,7 @@ private:
 	string terrain;
 public:
 	Motorcycle(string brand, string model, float enginev, int horsepwr, string terrain);
+	Motorcycle() {};
 
 	void setbrand(const string& newbrand) { brand = newbrand; };
 	void setmodel(const string& newmodel) { model = newmodel; };
@@ -35,6 +37,27 @@ public:
 	}
 
 	void print() const override;
+
+	/*
+	friend std::ostream& operator<<(std::ostream& os, const Motorcycle& moto) {
+		os << "Motorcycle " << moto.brand << " " << moto.model << " " << moto.enginev << " " << moto.horsepwr << " " << moto.terrain << "\n";
+		return os;
+	}
+
+	friend std::istream& operator>>(std::istream& is, Motorcycle& moto) {
+		is >> moto.brand >> moto.model >> moto.enginev >> moto.horsepwr >> moto.terrain;
+		return is;
+	}*/
+
+	void serialize(std::ofstream& out) const override {
+		out << "Moto: " << brand << " " << model << " " << enginev << " " << horsepwr << " " << terrain << "\n";
+	}
+
+	void deserialize(std::ifstream& in) override {
+		std::string type;
+		in >> type >> brand >> model >> enginev >> horsepwr >> terrain;
+	}
+
 
 };
 

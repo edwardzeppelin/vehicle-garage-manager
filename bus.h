@@ -2,6 +2,7 @@
 #define BUS_H
 
 #include "garage.h"
+#include <fstream>
 
 class Bus : public Garage
 {
@@ -13,6 +14,7 @@ private:
 	string destination;
 public:
 	Bus(string brand, string model, int sitseats, int allseats, string destination);
+	Bus() {};
 
 	void setbrand(const string& newbrand) { brand = newbrand; };
 	void setmodel(const string& newmodel) { model = newmodel; };
@@ -35,15 +37,29 @@ public:
 	string getmodel() const { return model; };
 	int getsitseats() const { return sitseats; };
 	int getallseats() const { return allseats; };
-	string getdestination() const { return destination; };
-
-	friend ostream& operator<<(ostream& os, const Bus& bus) {
-		os << "Bus: " << bus.brand << " " << bus.model << " " << bus.sitseats << " " << bus.allseats << " " << bus.destination;
-		return os;
-	}
-	*/
+	string getdestination() const { return destination; };*/
 
 	void print() const override;
+
+	/*
+	friend std::ostream& operator<<(std::ostream& os, const Bus& bus) {
+		os << "Bus " << bus.brand << " " << bus.model << " " << bus.sitseats << " " << bus.allseats << " " << bus.destination << "\n";
+		return os;
+	}
+
+	friend std::istream& operator>>(std::istream& is, Bus& bus) {
+		is >> bus.brand >> bus.model >> bus.sitseats >> bus.allseats >> bus.destination;
+		return is;
+	}*/
+
+	void serialize(std::ofstream& out) const override {
+		out << "Bus: " << brand << " " << model << " " << sitseats << " " << allseats << " " << destination << "\n";
+	}
+
+	void deserialize(std::ifstream& in) override {
+		std::string type;
+		in >> type >> brand >> model >> sitseats >> allseats >> destination;
+	}
 
 };
 

@@ -1,0 +1,4 @@
+Car: Toyota Mark II 3 White Mechanical
+Car: Ferrari 488 Pista 4.4 51 Livery Robot
+Moto: Kawasaki 500 1.9 220 Road
+Bus: LIAZ 677 45 70 Boksitogorsk

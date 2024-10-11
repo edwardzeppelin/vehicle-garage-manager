@@ -21,16 +21,19 @@ int main() {
 
 	Keeper keeper1;
 
+	keeper1.loadFromFile("garage.txt");
+	/*
 	keeper1.add(new Car("Toyota", "Mark II", 3.000, "White", "Mechanical"));
 	keeper1.add(new Car("Ferrari", "488 Pista", 4.400, "51 Livery", "Robot"));
 	keeper1.add(new Motorcycle("Kawasaki", "500", 1.9, 220, "Road"));
 	keeper1.add(new Bus("LIAZ", "677", 45, 70, "Boksitogorsk"));
 
-	keeper1[0]->getveh();
+	keeper1.saveToFile("garage.txt");*/
+
+	/*keeper1[0]->getveh();
 	keeper1[1]->getveh();
 	keeper1[2]->getveh();
-	keeper1[3]->getveh();
-
+	keeper1[3]->getveh();*/
 
 	while (true) {
 
@@ -43,7 +46,7 @@ int main() {
 		cout << "5 - Edit motorcycle" << endl;
 		cout << "6 - Add bus" << endl;
 		cout << "7 - Edit bus" << endl;
-		cout << "8 - Delete vehicle";
+		cout << "8 - Delete vehicle" << endl;
 		cout << "9 - Save in file" << endl;
 		cout << "10 - Read from file" << endl;
 		cout << "11 - Exit" << endl;
