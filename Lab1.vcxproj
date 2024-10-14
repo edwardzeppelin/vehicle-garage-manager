@@ -129,7 +129,6 @@
   <ItemGroup>
     <ClCompile Include="bus.cpp" />
     <ClCompile Include="car.cpp" />
-    <ClCompile Include="garage.cpp" />
     <ClCompile Include="keeper.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="moto.cpp" />

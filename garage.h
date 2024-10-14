@@ -2,6 +2,7 @@
 #define GARAGE_H
 
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 class Garage
@@ -20,14 +21,9 @@ public:
 	virtual void setallseats(const int& newallseats) = 0;
 	virtual void setdestination(const string& newdestination) = 0;
 	virtual void getveh() = 0;
-
 	virtual string gettype() const = 0;
-
-	virtual ~Garage() {}
-
-	virtual void serialize(std::ofstream& out) const = 0;
-
-	virtual void deserialize(std::ifstream& in) = 0;
+	virtual void serialize(ofstream& out) const = 0;
+	virtual void deserialize(ifstream& in) = 0;
 
 };
 

@@ -7,7 +7,6 @@ int main() {
 
 	int choice;
 	int index;
-
 	string cbrand;
 	string cmodel;
 	float cengv;
@@ -18,22 +17,7 @@ int main() {
 	int sitseats;
 	int allseats;
 	string destination;
-
 	Keeper keeper1;
-
-	keeper1.loadFromFile("garage.txt");
-	/*
-	keeper1.add(new Car("Toyota", "Mark II", 3.000, "White", "Mechanical"));
-	keeper1.add(new Car("Ferrari", "488 Pista", 4.400, "51 Livery", "Robot"));
-	keeper1.add(new Motorcycle("Kawasaki", "500", 1.9, 220, "Road"));
-	keeper1.add(new Bus("LIAZ", "677", 45, 70, "Boksitogorsk"));
-
-	keeper1.saveToFile("garage.txt");*/
-
-	/*keeper1[0]->getveh();
-	keeper1[1]->getveh();
-	keeper1[2]->getveh();
-	keeper1[3]->getveh();*/
 
 	while (true) {
 
@@ -66,7 +50,7 @@ int main() {
 				cin >> cmodel;
 				cout << "Enter engine volume: ";
 				cin >> cengv;
-				if (cengv < 1)
+				if (cengv <= 0)
 					throw invalid_argument("Cant be negative");
 				cout << "Enter colour: ";
 				cin >> ccolour;
@@ -98,7 +82,7 @@ int main() {
 				cin >> cmodel;
 				cout << "Enter new engine volume: ";
 				cin >> cengv;
-				if (cengv < 0)
+				if (cengv <= 0)
 					throw invalid_argument("Cant be negative");
 				cout << "Enter new colour: ";
 				cin >> ccolour;
@@ -120,7 +104,7 @@ int main() {
 				cin >> cmodel;
 				cout << "Enter engine volume: ";
 				cin >> cengv;
-				if (cengv < 1)
+				if (cengv <= 0)
 					throw invalid_argument("Cant be negative");
 				cout << "Enter power (in hp): ";
 				cin >> chorsepwr;
@@ -152,10 +136,12 @@ int main() {
 				cin >> cmodel;
 				cout << "Enter new engine volume: ";
 				cin >> cengv;
-				if (cengv < 0)
+				if (cengv <= 0)
 					throw invalid_argument("Cant be negative");
 				cout << "Enter new power (in hp): ";
 				cin >> chorsepwr;
+				if (chorsepwr < 1)
+					throw invalid_argument("Cant be negative");
 				cout << "Enter new type of terrain: ";
 				cin >> cterrain;
 
@@ -174,7 +160,7 @@ int main() {
 				cin >> cmodel;
 				cout << "Enter number of sit seats: ";
 				cin >> sitseats;
-				if (sitseats < 1)
+				if (sitseats < 0)
 					throw invalid_argument("Cant be negative");
 				cout << "Enter number of all seats: ";
 				cin >> allseats;
@@ -210,7 +196,7 @@ int main() {
 					throw invalid_argument("Cant be negative");
 				cout << "Enter new allseats: ";
 				cin >> allseats;
-				if (allseats < 0)
+				if (allseats < 1)
 					throw invalid_argument("Cant be negative");
 				cout << "Enter new destination: ";
 				cin >> destination;
@@ -230,10 +216,10 @@ int main() {
 				cout << "Vehicle deleted" << endl;
 				break;
 			case 9:
-
+				keeper1.serialize("garage.bin");
 				break;
 			case 10:
-				
+				keeper1.deserialize("garage.bin");
 				break;
 			case 11:
 				cout << "Exiting..." << endl;
@@ -257,22 +243,3 @@ int main() {
 		}
 	}
 }
-
-/*
-
-	keeper1.printall();
-
-	try {
-		keeper1[0]->print();
-		keeper1[1]->print();
-		(keeper1[1])->setgearbox("Auto");
-		keeper1[1]->setbrand("Lexus");
-		keeper1[1]->print();
-		//keeper1[2]->print();
-	}
-	catch (const out_of_range& e) {
-		cerr << e.what() << endl;
-	}
-
-	return 0;
-}*/
